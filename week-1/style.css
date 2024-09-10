@@ -1,4 +1,8 @@
+html{
+    font-size: calc(15px + 0.390625vw);
+}
 body {
+    font-size:0.7rem;
     background-color: #bbbed6;
     font-family: monospace;
     text-align: left;
@@ -21,7 +25,8 @@ p {
 .pageHeading {
     display: flex;
     justify-content: space-between;
-    font-size: Medium;
+    align-items:center;
+    font-size: 1rem;
     background-color: #fffde5;
     padding: 1px;
     padding-left: 30px;
@@ -33,23 +38,24 @@ p {
     padding: 20px;
     margin: 10px;
     cursor: pointer;
-    transition: 0.5s;
+    transition: background-color 1s;
 }
 
 .signInButton:hover {
     background-color: #ffd8a1;
-    transition: 0.5s;
+    transition: background-color 1s;
+
     border-radius: 10px;
 }
 
 .callout {
     text-align: center;
-    font-size: x-large;
     margin-top: 50px;
     margin-left: 20%;
     margin-right: 20%;
     border-radius: 10px;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 1rem;
     font-style: bold;
     mix-blend-mode: normal;
 }
@@ -70,11 +76,11 @@ p {
     padding: 10px;
     background-color: beige;
     border-radius: 10px;
-    transition: 1s;
+    transition: transform 1s, background-color 1s;
 }
 
 .content:hover {
-    transition: 1s;
+    transition: background-color 1s, transform 1s;
     transform: rotate(1deg);
     background-color: bisque;
 }
@@ -87,15 +93,15 @@ p {
     width: 350px;
     padding: 10px 0;
     background-color: #ffd8a1;
-    transition: all 0.5s;
+    transition: background-color 1s;
     border-radius: 10px;
     font-weight: bold;
-    font-size: larger
+    font-size: 1rem;
 }
 
 .button:hover {
     background-color: #fff894;
-    transition: all 0.5s;
+    transition: background-color 1s;
     cursor: pointer;
 }
 
