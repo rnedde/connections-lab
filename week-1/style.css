@@ -39,6 +39,7 @@ p {
     margin: 10px;
     cursor: pointer;
     transition: background-color 1s;
+    font-size:0.7rem;
 }
 
 .signInButton:hover {
