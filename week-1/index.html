@@ -1,10 +1,17 @@
-<!-- This is a comment -->
+
 
 <!--
-  This is a long comment example. This is a long comment example.
-  This is a long comment example. This is a long comment example.
+    Reverie Nedde 
+    Connections Lab Fall 2024
+    Week 1 Assignment:
+  - Your landing page should portray your interpretation of the prompt and should explain it to a user. For example, if your prompt is “a website about musical lamps for singers”, your site should contain the design, a promotion about musical lamps, maybe a button to “Learn More” (the button doesn’t have to go anywhere), and speak to the audience of “singers”. 
+Note, you’re also welcome to mix up the prompts, e.g., mix prompts *“A website about musical lamps for singers”* and *“A website that offers life-saving advice for smurfs”* and it becomes *“A website about musical lamps for smurfs”.*
+- Your website should also include at least 1 CSS animation (e.g. an object should move to a different position on the page over time). Animation should be in line with your interpretation of the prompt. See the BONUS section for CSS animation references.
+- Upload your project files to your own Github repo and post the link on the Notion [Weekly Homework page](https://www.notion.so/Weekly-Homework-78f9c29962ca4285803029da311dcac2?pvs=21) **by Tuesday, September 10th 12pm (noon) ET.**
+- Your folder should contain an .html file, a .css file and any media assets (i.e. images) needed to properly load your webpage. Please also include pictures of your wireframes.
 -->
 
+<!-- Prompt: A musical website for YouTube celebrities -->
 
 
 <!DOCTYPE html>
@@ -14,163 +21,14 @@
     <title>Free Royalty Free</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="spiral.png">
-    <style>
-        
-        body {
-            background-color: #bbbed6;
-            font-family: monospace;
-            text-align: left;
-            margin: 0;
-        }
-        p{
-            padding:10px;
-        }
-        .container {
-            position:relative;
-            width: 100%;
-            min-height:900px;
-            margin: 0 auto;
-            overflow:hidden;/*cuts off extra shape on the right*/
-        }
-
-        .pageHeading {
-            display:flex;
-            justify-content:space-between;
-            font-size: Medium;
-            background-color:#fffde5;
-            padding: 1px;
-            padding-left: 30px;
-        }
-
-        .signInButton{
-            display:flex;
-            align-items:center;
-            padding:10px;
-            margin:10px;
-            cursor:pointer;
-        }
-
-        .signInButton:hover{
-            background-color:#fff894;
-            transition:0.5s;
-        }
-
-        .callout {
-            text-align: center;
-            font-size: x-large;
-            margin-top:75px;
-            margin-left: 20%;
-            margin-right: 20%;
-            border-radius: 10px;
-            font-family: Georgia, 'Times New Roman', Times, serif;
-            font-style: bold;
-            mix-blend-mode: normal;
-        }
-
-        .cards {
-            display: block;
-            justify-content: space-between;
-            margin-left: 25%;
-            margin-right: 25%;
-        }
-
-        .content {
-            display:flex;
-            align-items:center;
-            position:block;
-            height:50px;
-            margin: 10px;
-            padding: 10px;
-            background-color:beige;
-            border-radius: 10px;
-            transition:1s;
-        }
-        .content:hover{
-            transition:1s;
-            transform:rotate(1deg);
-            background-color: bisque;
-        }
-
-        .button {
-            text-align: center;
-            display: block;
-            margin: auto;
-            margin-top:30px;
-            width: 350px;
-            padding: 10px 0;
-            background-color:#ffd8a1;
-            transition: all 0.5s;
-            border-radius: 10px;
-            font-weight:bold;
-            font-size:larger
-        }
-
-        .button:hover {
-            background-color: #fff894;
-            transition: all 0.5s;
-            cursor:pointer;
-        }
-
-        .shape1 {
-            position:absolute;
-            top:100px;
-            z-index: -1;
-            background-color: rgb(255, 215, 248);
-            width: 25%;
-            height: 500px;
-            border-radius: 50%;
-            transform: rotate(30deg);
-        }
-        .shape2{
-            position:absolute;
-            top:300px;
-            left:50%;
-            z-index:-1;
-            background-color:rgb(185, 228, 245);
-            border-radius:50%;
-            width:75%;
-            height:300px;
-            transform:rotate(10deg);
-        }
-        .musicNote{
-            position:absolute;
-            top:200px;
-            left:5%;
-            width:20%;
-            transition:5s;
-        }
-        .musicNote:hover{
-            transition:5s;
-            transform:rotate(360deg);
-        }
-        .playButton{
-            position:absolute;
-            top:400px;
-            left:80%;
-            width:20%;
-            transform:rotate(15deg);
-            transition:5s;
-        }
-        .playButton:hover{
-            transition:5s;
-            transform:rotate(360deg);
-        }
-        .icon{
-            padding-right:10px;
-        }
-        .info{
-            text-align:center;
-            margin-top:20px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
         <div class="pageHeading">
             <h1>Free Royalty Free</h1>
-            <p class = "signInButton">Log In/Sign Up</p>
+            <p class="signInButton">Log In/Sign Up</p>
         </div>
         <div class=shape1></div>
         <div class=shape2></div>
@@ -200,8 +58,7 @@
         <div class="button">
             <p>Click here to browse music!</p>
         </div>
-        <div class = "info">No credit card required!</div>
-
+        <div class="info">No credit card required!</div>
 
     </div>
 
