@@ -1,12 +1,9 @@
 
-
 console.log("File is running!");
 
 //name array
 let names = ["Adam", "Steven", "Reverie", "Anna",
     "Zelong", "Liangsheng", "Miya", "Yael"];
-
-
 
 
 //make sure whole window is loaded first
@@ -24,7 +21,7 @@ window.addEventListener("load", () => {
 
         //3. Pick a random name
         const numNames = names.length;
-        let randomIndex = Math.floor(Math.random()*numNames);
+        let randomIndex = Math.floor(Math.random() * numNames);
         console.log(randomIndex);
         let pickedName = names[randomIndex];
         console.log(pickedName);
@@ -37,13 +34,8 @@ window.addEventListener("load", () => {
         pickedNameElement.classList.add("picked_animation");
 
         //remove class after 3s
-        setTimeout(()=>{
+        setTimeout(() => {
             pickedNameElement.classList.remove("picked_animation");
         }, 3000)
     })
-
-
 });
-
-
-

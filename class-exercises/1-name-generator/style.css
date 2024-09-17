@@ -24,7 +24,7 @@ body, html{
     animation-iteration-count: 1;
 }
 
-@keyframes names{
+@keyframes name{
     0%{
         font-size:4vh;
     }
