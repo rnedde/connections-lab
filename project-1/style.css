@@ -1,60 +1,75 @@
-
-#bendi-delts {
-    fill: #f3ffb5;
+:root {
+    --head-color: #ffb9b5;
+    --neck-color: #ffceb5;
+    --pecs-color: #ffeeb5;
+    --delts-color: #f3ffb5;
+    --triceps-color: #d2ffb5;
+    --biceps-color: #b5ffdb;
+    --forearms-color: #b5faff;
+    --hands-color: #b5deff;
+    --abs-color: #b5ffc8;
+    --obliques-color: #b5e1ff;
+    --quads-color: #b5b8ff;
+    --adductor-color: #cfb5ff;
+    --shins-color: #e5b5ff;
+    --calves-color: #ffb5f6;
+    --feet-color: #ffb5ca;
 }
 
-#bendi-pecs {
-    fill: #ffeeb5;
+body {
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    line-height: 0;
 }
 
-#bendi-head {
-    fill: #ffb9b5;
+h1 {
+    font-family: "chaloops", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    outline: 2px;
+    text-shadow: 0 0 3px black;
 }
 
-#bendi-calves {
-    fill: #ffb5f6;
+h2 {
+    text-shadow: 0 0 3px black;
 }
 
-#bendi-feet {
-    fill: #ffb5ca;
+.responsive-svg {
+    height: 75vh;
 }
 
-#bendi-neck {
-    fill: #ffceb5;
+.head-col {
+    color: var(--head-color);
 }
 
-#bendi-shins {
-    fill: #e5b5ff;
+.neck-col {
+    color: var(--neck-color);
 }
 
-#bendi-hands {
-    fill: #b5deff;
+.pecs-col {
+    color: var(--pecs-color);
 }
 
-#bendi-obliques {
-    fill: #b5e1ff;
+.delts-col {
+    color: var(--delts-color);
 }
 
-#bendi-quads {
-    fill: #b5b8ff;
+.triceps-col {
+    color: var(--triceps-color);
 }
 
-#bendi-abs {
-    fill: #b5ffc8;
+.quads-col {
+    color: var(--quads-color);
 }
 
-#bendi-forearms {
-    fill: #b5faff;
+.feet-col {
+    color: var(--feet-color);
 }
 
-#bendi-biceps {
-    fill: #b5ffdb;
-}
-
-#bendi-groin {
-    fill: #cfb5ff;
-}
-
-#bendi-triceps {
-    fill: #d2ffb5;
+#muscle-group {
+    height: 2rem;
 }
