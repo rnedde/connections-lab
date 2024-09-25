@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
     const root = document.documentElement;
 
     //array of all bodyparts
-    let bodyParts = ['head', 'neck', 'pecs', 'delts', 'triceps', 'biceps', 'forearms', 'hands', 'abs', 'obliques', 'quads', 'adductor', 'shins', 'calves', 'feet'];
+    let bodyParts = ['head', 'neck', 'pecs', 'delts', 'biceps', 'triceps', 'forearms', 'hands', 'abs', 'obliques', 'quads', 'adductor', 'shins', 'calves', 'feet'];
 
     for (let i = 0; i < bodyParts.length; i++) {
         hover(bodyParts[i]);
@@ -31,7 +31,7 @@ window.addEventListener("load", function () {
                 console.log(bodyPartElementId + " hovered");
                 bodyPartElement.style.fill = hoverColor;
                 muscleGroupElement.innerHTML = bodyPart;
-                muscleGroupElement.style.color = hoverColor;
+                muscleGroupElement.style.backgroundColor= hoverColor;
             });
 
             //when mouse moves off, set to white.
