@@ -27,7 +27,10 @@ body {
     justify-content: center;
     text-align: center;
     background-color: white;
-    line-height: 0;
+    /* line-height: 0; */
+}
+.header{
+    line-height: 0rem;
 }
 
 h1 {
@@ -36,26 +39,32 @@ h1 {
     font-style: normal;
     outline: 2px;
     text-shadow: 0 0 3px black;
+    padding:1rem 0;
 }
-
+g:hover, #countdown-button{
+    cursor:pointer;
+}
 .bendi-container{
     display:flex;
     flex-direction: row;
     justify-content:space-between;
     border: 2px dotted violet;
 }
-#muscle-group-name{
+#common-name{
     position:absolute;
     font-size:1rem;
-    width:9rem;
-    padding-top: 30px;
     margin:4vh 32%;
-    height:1.5rem;
     border: 2px dashed palevioletred;
+    white-space: normal; /* Ensure text will wrap */
+    word-wrap: break-word; /* Break long words if necessary */
+    overflow-wrap: break-word; /* Ensure proper text breaking */
+
+
 }
 #information{
     border:2px dotted darkblue;
     width:100%;
+    visibility:hidden;
 }
 #stretch-name{
     border: 2px dotted greenyellow;
@@ -63,9 +72,42 @@ h1 {
 #stretch-description{
     border: 2px dotted red;
 }
-
 #stretch-duration{
     border: 2px dashed skyblue;
+}
+.hide-and-show{
+    visibility:hidden;
+}
+
+#countdown-container{
+    flex-direction:column;
+    justify-content:space-between;
+    border: 2px solid purple;
+    border-radius:0.3rem;
+    margin:2rem;
+    display:inline-block;
+}
+#countdown-header{
+    margin:1rem;
+}
+#countdown{
+    display:inline-block;
+}
+#countdown-buttons{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+#countdown-button{
+    margin:1rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    padding:0 .3rem;
+    border:1px solid black;
+    border-radius:.3rem;
+    display: inline-block;
+}
+#start-stop-button:hover, #reset-button:hover{
+    cursor:pointer;
 }
 .responsive-svg {
     width: 100%;

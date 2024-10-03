@@ -3,14 +3,15 @@
       {
         "name": "head",
         "commonName": "Head",
+        "muscleGroup": "Brain",
         "stretches": [
           {
-            "exerciseName": "Mindful Breathing",
+            "stretchName": "Mindful Breathing",
             "instructions": "Sit in a comfortable position. Close your eyes and take slow, deep breaths. Focus on the sensation of the air entering and leaving your body. If your mind wanders, gently bring your attention back to your breath.",
             "duration": 120
           },
           {
-            "exerciseName": "Body Scan Meditation",
+            "stretchName": "Body Scan Meditation",
             "instructions": "Lie down or sit comfortably. Close your eyes and slowly move your attention through your body, starting from your toes and working up to your head. Notice any sensations, tension, or relaxation without judgment.",
             "duration": 300
           }
@@ -114,7 +115,7 @@
       },
       {
         "name": "obliques",
-        "commonName": "Side Abdominals",
+        "commonName": "Obliques",
         "muscleGroup": "Oblique muscles",
         "stretches": [
           {
