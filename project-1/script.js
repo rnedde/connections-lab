@@ -5,7 +5,7 @@ window.addEventListener("load", function () {
 
     //array to hold body part names
     let bodyParts = ['head', 'neck', 'pecs', 'delts', 'biceps', 'triceps', 'forearms', 'hands', 'abs', 'obliques', 'quads', 'adductor', 'shins', 'calves', 'feet'];
-    //global object to be used later
+    //global object to store the stretch that is clicked
     let selectedStretch = {};
 
     let countdown;
