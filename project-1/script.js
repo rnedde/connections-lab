@@ -62,7 +62,7 @@ window.addEventListener("load", function () {
             bodyPartElement.addEventListener('click', function () {
                 console.log(bodyPartElementId + " clicked");
                 bodyPartElement.style.fill = hoverColor;
-                
+
 
                 commonNameElement.style.backgroundColor = hoverColor;
 
