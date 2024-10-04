@@ -1,33 +1,41 @@
 window.addEventListener("load", function () {
 
-    console.log("page is loaded");
-
+    //needed to get color variables from css
     const root = document.documentElement;
+
+    //array to hold body part names
     let bodyParts = ['head', 'neck', 'pecs', 'delts', 'biceps', 'triceps', 'forearms', 'hands', 'abs', 'obliques', 'quads', 'adductor', 'shins', 'calves', 'feet'];
-    let selectedStretch = {};  // Store data related to the currently selected stretch
+    //global object to be used later
+    let selectedStretch = {};
+
     let countdown;
     let countdownOn = false;
+
+    //cycles through each body part for hover and click interactions. 
     for (let i = 0; i < bodyParts.length; i++) {
         interaction(i);
     }
 
+    //when countdown button is clicked, start countdown, and change button to say "restart"
     const countdownButtonElement = document.getElementById('countdown-button');
     const countdownElement = document.getElementById('countdown');
     countdownButtonElement.addEventListener('click', function () {
-        console.log('Countdown clicked for stretch:', selectedStretch);
-        if (selectedStretch.stretchDuration) {
-            countdownOn = true;
-            startCountdown(selectedStretch.stretchDuration, countdownElement);
-        }
+        countdownOn = true;
+        startCountdown(selectedStretch.stretchDuration, countdownElement);
         countdownButtonElement.innerHTML = "restart";
     });
 
 
     function interaction(index) {
         let hoveredBodyPart = bodyParts[index];
+        //get color variable from css
         let hoverColor = getComputedStyle(root).getPropertyValue('--' + hoveredBodyPart + '-color').trim();
+
+        //uses body part name to get the id tag from the svg. 
         let bodyPartElementId = 'bendi-' + hoveredBodyPart;
         let bodyPartElement = document.getElementById(bodyPartElementId);
+
+        //getting elements...
         let informationDiv = document.getElementById('information');
         let commonNameElement = document.getElementById('common-name');
         let muscleGroupElement = document.getElementById('muscle-group');
@@ -38,8 +46,12 @@ window.addEventListener("load", function () {
 
 
         if (bodyPartElement) {
+
+            //set fill of all parts to white first. 
             bodyPartElement.style.fill = "white";
 
+            //when the mouse is hovered, gets the common name from the json file, 
+            //and changes color of the body part and the text highlight
             bodyPartElement.addEventListener('mouseover', function () {
                 fetch('./stretches.json')
                     .then(response => response.json())
@@ -49,22 +61,19 @@ window.addEventListener("load", function () {
                         commonNameElement.innerHTML = commonName;
                     });
                 bodyPartElement.style.fill = hoverColor;
-
                 commonNameElement.style.backgroundColor = hoverColor;
             });
 
+            //goes back to default when mouse leaves the body part. 
             bodyPartElement.addEventListener('mouseout', function () {
                 bodyPartElement.style.fill = "white";
                 commonNameElement.innerHTML = "";
                 commonNameElement.style.backgroundColor = "white";
             });
 
+            //when the body part is clicked, updates the global selectedStretch object to match the clicked body part. 
             bodyPartElement.addEventListener('click', function () {
                 console.log(bodyPartElementId + " clicked");
-                bodyPartElement.style.fill = hoverColor;
-
-
-                commonNameElement.style.backgroundColor = hoverColor;
 
                 fetch('./stretches.json')
                     .then(response => response.json())
@@ -82,18 +91,21 @@ window.addEventListener("load", function () {
                             stretchDuration: stretch.duration
                         };
 
+                        //changes style of information section to be visible and match body part color
                         informationDiv.style.visibility = 'visible';
                         muscleGroupElement.style.backgroundColor = hoverColor;
                         countdownContainerElement.style.backgroundColor = hoverColor;
                         stretchNameElement.style.border = '2px solid ' + hoverColor;
 
+                        //updates information to match selected body part.
                         muscleGroupElement.innerHTML = selectedStretch.muscleGroup;
                         stretchNameElement.innerHTML = selectedStretch.stretchName;
-
                         stretchDescriptionElement.innerHTML = selectedStretch.stretchDescription;
                         stretchDurationElement.innerHTML = selectedStretch.stretchDuration;
-                        countdownElement.innerHTML = selectedStretch.stretchDuration;
 
+
+                        //when a new body part is selected, the countdown resets. 
+                        countdownElement.innerHTML = selectedStretch.stretchDuration;
                         countdownOn = false;
                     });
             });
@@ -106,25 +118,27 @@ window.addEventListener("load", function () {
     }
 
     function startCountdown(duration, element) {
-
-        console.log(`Starting countdown for ${duration} seconds`);
         element.innerHTML = "Ready?"
-        countdown = duration;
-        const countdownInterval = setInterval(() => {
 
+        //countdown is the current time remaining
+        countdown = duration;
+
+        //created with help from chatGPT
+        const countdownInterval = setInterval(() => {
             element.innerHTML = countdown;
-            console.log(`Time remaining: ${countdown} seconds`);
             countdown--;
             if (countdown < 0) {
                 clearInterval(countdownInterval);
-                console.log("Countdown finished");
                 element.innerHTML = "Finished!"
             }
+
+            //stop timer and reset text if countdown is stopped.
             if (!countdownOn) {
                 clearInterval(countdownInterval);
                 element.innerHTML = selectedStretch.stretchDuration;
                 countdownButtonElement.innerHTML = "start";
             }
+            //starts over if restart button is clicked. 
             countdownButtonElement.addEventListener('click', function () {
                 clearInterval(countdownInterval);
             })
