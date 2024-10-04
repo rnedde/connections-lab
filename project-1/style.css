@@ -41,20 +41,19 @@ h1 {
     text-shadow: 0 0 3px black;
     padding:1rem 0;
 }
-g:hover, #countdown-button{
+g:hover{
     cursor:pointer;
 }
 .bendi-container{
     display:flex;
     flex-direction: row;
     justify-content:space-between;
-    border: 2px dotted violet;
 }
 #common-name{
     position:absolute;
     font-size:1rem;
     margin:4vh 32%;
-    border: 2px dashed palevioletred;
+    padding:.3rem 1rem;
     white-space: normal; /* Ensure text will wrap */
     word-wrap: break-word; /* Break long words if necessary */
     overflow-wrap: break-word; /* Ensure proper text breaking */
@@ -62,18 +61,27 @@ g:hover, #countdown-button{
 
 }
 #information{
-    border:2px dotted darkblue;
     width:100%;
     visibility:hidden;
+    display:inline-block;
+
+}
+#muscle-group{
+    display:inline-block;
+    padding:.3rem 1rem;
+    margin:1rem;
 }
 #stretch-name{
-    border: 2px dotted greenyellow;
+    display:inline-block;
+    padding:.3rem 1rem;
+    margin:1rem;
 }
+
 #stretch-description{
-    border: 2px dotted red;
+    margin:1rem 3rem;
 }
 #stretch-duration{
-    border: 2px dashed skyblue;
+    margin:3rem, 1rem;
 }
 .hide-and-show{
     visibility:hidden;
@@ -82,7 +90,6 @@ g:hover, #countdown-button{
 #countdown-container{
     flex-direction:column;
     justify-content:space-between;
-    border: 2px solid purple;
     border-radius:0.3rem;
     margin:2rem;
     display:inline-block;
@@ -100,19 +107,20 @@ g:hover, #countdown-button{
 }
 #countdown-button{
     margin:1rem;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
     padding:0 .3rem;
     border:1px solid black;
     border-radius:.3rem;
     display: inline-block;
 }
-#start-stop-button:hover, #reset-button:hover{
+#countdown-button:hover{
     cursor:pointer;
+    box-shadow:0px 0px 0px 0;
 }
 .responsive-svg {
+    display:inline-block;
     width: 100%;
     height: 70vh;      
-    border: 2px dashed black;
   }
 
   

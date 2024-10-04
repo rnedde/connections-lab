@@ -18,9 +18,10 @@ window.addEventListener("load", function () {
         if (selectedStretch.stretchDuration) {
             countdownOn = true;
             startCountdown(selectedStretch.stretchDuration, countdownElement);
-
         }
+        countdownButtonElement.innerHTML = "restart";
     });
+
 
     function interaction(index) {
         let hoveredBodyPart = bodyParts[index];
@@ -33,6 +34,7 @@ window.addEventListener("load", function () {
         let stretchNameElement = document.getElementById('stretch-name');
         let stretchDescriptionElement = document.getElementById('stretch-description');
         let stretchDurationElement = document.getElementById('stretch-duration');
+        let countdownContainerElement = document.getElementById('countdown-container');
 
 
         if (bodyPartElement) {
@@ -59,6 +61,10 @@ window.addEventListener("load", function () {
 
             bodyPartElement.addEventListener('click', function () {
                 console.log(bodyPartElementId + " clicked");
+                bodyPartElement.style.fill = hoverColor;
+                
+
+                commonNameElement.style.backgroundColor = hoverColor;
 
                 fetch('./stretches.json')
                     .then(response => response.json())
@@ -77,8 +83,13 @@ window.addEventListener("load", function () {
                         };
 
                         informationDiv.style.visibility = 'visible';
+                        muscleGroupElement.style.backgroundColor = hoverColor;
+                        countdownContainerElement.style.backgroundColor = hoverColor;
+                        stretchNameElement.style.border = '2px solid ' + hoverColor;
+
                         muscleGroupElement.innerHTML = selectedStretch.muscleGroup;
                         stretchNameElement.innerHTML = selectedStretch.stretchName;
+
                         stretchDescriptionElement.innerHTML = selectedStretch.stretchDescription;
                         stretchDurationElement.innerHTML = selectedStretch.stretchDuration;
                         countdownElement.innerHTML = selectedStretch.stretchDuration;
@@ -86,6 +97,9 @@ window.addEventListener("load", function () {
                         countdownOn = false;
                     });
             });
+
+
+
         } else {
             console.error("Element with ID " + bodyPartElementId + " not found!");
         }
@@ -104,14 +118,17 @@ window.addEventListener("load", function () {
             if (countdown < 0) {
                 clearInterval(countdownInterval);
                 console.log("Countdown finished");
+                element.innerHTML = "Finished!"
             }
             if (!countdownOn) {
                 clearInterval(countdownInterval);
                 element.innerHTML = selectedStretch.stretchDuration;
+                countdownButtonElement.innerHTML = "start";
             }
             countdownButtonElement.addEventListener('click', function () {
                 clearInterval(countdownInterval);
             })
+
 
         }, 1000);  // 1 second intervals
     }
