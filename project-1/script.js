@@ -4,9 +4,9 @@ window.addEventListener("load", function () {
 
     const root = document.documentElement;
     let bodyParts = ['head', 'neck', 'pecs', 'delts', 'biceps', 'triceps', 'forearms', 'hands', 'abs', 'obliques', 'quads', 'adductor', 'shins', 'calves', 'feet'];
-
     let selectedStretch = {};  // Store data related to the currently selected stretch
     let countdown;
+    let countdownOn = false;
     for (let i = 0; i < bodyParts.length; i++) {
         interaction(i);
     }
@@ -16,7 +16,9 @@ window.addEventListener("load", function () {
     countdownButtonElement.addEventListener('click', function () {
         console.log('Countdown clicked for stretch:', selectedStretch);
         if (selectedStretch.stretchDuration) {
+            countdownOn = true;
             startCountdown(selectedStretch.stretchDuration, countdownElement);
+
         }
     });
 
@@ -31,7 +33,7 @@ window.addEventListener("load", function () {
         let stretchNameElement = document.getElementById('stretch-name');
         let stretchDescriptionElement = document.getElementById('stretch-description');
         let stretchDurationElement = document.getElementById('stretch-duration');
-        
+
 
         if (bodyPartElement) {
             bodyPartElement.style.fill = "white";
@@ -45,7 +47,7 @@ window.addEventListener("load", function () {
                         commonNameElement.innerHTML = commonName;
                     });
                 bodyPartElement.style.fill = hoverColor;
-                
+
                 commonNameElement.style.backgroundColor = hoverColor;
             });
 
@@ -79,7 +81,9 @@ window.addEventListener("load", function () {
                         stretchNameElement.innerHTML = selectedStretch.stretchName;
                         stretchDescriptionElement.innerHTML = selectedStretch.stretchDescription;
                         stretchDurationElement.innerHTML = selectedStretch.stretchDuration;
-                        countdownElement.innerHTML =selectedStretch.stretchDuration;
+                        countdownElement.innerHTML = selectedStretch.stretchDuration;
+
+                        countdownOn = false;
                     });
             });
         } else {
@@ -88,19 +92,27 @@ window.addEventListener("load", function () {
     }
 
     function startCountdown(duration, element) {
+
         console.log(`Starting countdown for ${duration} seconds`);
-        // Example countdown logic
+        element.innerHTML = "Ready?"
         countdown = duration;
         const countdownInterval = setInterval(() => {
-            
-            element.innerHTML =countdown;
+
+            element.innerHTML = countdown;
             console.log(`Time remaining: ${countdown} seconds`);
             countdown--;
             if (countdown < 0) {
                 clearInterval(countdownInterval);
                 console.log("Countdown finished");
-                
             }
+            if (!countdownOn) {
+                clearInterval(countdownInterval);
+                element.innerHTML = selectedStretch.stretchDuration;
+            }
+            countdownButtonElement.addEventListener('click', function () {
+                clearInterval(countdownInterval);
+            })
+
         }, 1000);  // 1 second intervals
     }
 
