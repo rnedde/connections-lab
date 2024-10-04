@@ -12,10 +12,11 @@ window.addEventListener("load", function () {
     }
 
     const countdownButtonElement = document.getElementById('countdown-button');
+    const countdownElement = document.getElementById('countdown');
     countdownButtonElement.addEventListener('click', function () {
         console.log('Countdown clicked for stretch:', selectedStretch);
         if (selectedStretch.stretchDuration) {
-            startCountdown(selectedStretch.stretchDuration);
+            startCountdown(selectedStretch.stretchDuration, countdownElement);
         }
     });
 
@@ -78,6 +79,7 @@ window.addEventListener("load", function () {
                         stretchNameElement.innerHTML = selectedStretch.stretchName;
                         stretchDescriptionElement.innerHTML = selectedStretch.stretchDescription;
                         stretchDurationElement.innerHTML = selectedStretch.stretchDuration;
+                        countdownElement.innerHTML =selectedStretch.stretchDuration;
                     });
             });
         } else {
@@ -85,15 +87,13 @@ window.addEventListener("load", function () {
         }
     }
 
-    function startCountdown(duration) {
+    function startCountdown(duration, element) {
         console.log(`Starting countdown for ${duration} seconds`);
         // Example countdown logic
-        let countdownInterval = 0;
-        clearInterval(countdownInterval);
         countdown = duration;
-        countdownInterval = setInterval(() => {
-            let countdownElement = document.getElementById('countdown');
-            countdownElement.innerHTML =countdown;
+        const countdownInterval = setInterval(() => {
+            
+            element.innerHTML =countdown;
             console.log(`Time remaining: ${countdown} seconds`);
             countdown--;
             if (countdown < 0) {
